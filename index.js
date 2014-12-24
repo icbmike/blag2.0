@@ -8,6 +8,8 @@ require('./models');
 var express = require('express');
 var app = express();
 
+app.engine('jade', require('jade').__express);
+
 app.use(express.static('public'));
 
 require('./routes')(app);
