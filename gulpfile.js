@@ -22,7 +22,8 @@ var paths = {
 	
 	styleEntryFile: './styles/blag.less',
 	styleOutputDir: './public/styles/',
-	styleOutputFile: 'blag.css'
+	styleOutputFile: 'blag.css',
+	lessFiles: './styles/**/*.less'
 };
 
 function errorHandler(error) {
@@ -76,6 +77,7 @@ gulp.task('build', ['less', 'cleancss', 'browserify', 'uglify']);
 
 gulp.task('watch', ['build'], function() {
 	gulp.watch(paths.appFiles, ['build']);
+	gulp.watch(paths.lessFiles, ['less']);
 });
 
 gulp.task('default', ['build']);
