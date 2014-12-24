@@ -14,10 +14,19 @@
   "dependencies": {
     "angular": "^1.3.8",
     "express": "^4.10.6",
+    "lodash": "^2.4.1",
     "mongoose": "^3.8.21"
   },
   "devDependencies": {
     "browserify": "^7.0.3",
-    "gulp": "^3.8.10"
+    "browserify-global-shim": "^1.0.0",
+    "gulp": "^3.8.10",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.2.8",
+    "gulp-uglify": "^1.0.2",
+    "stringify": "^3.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "vinyl-transform": "^1.0.0"
   }
 }
