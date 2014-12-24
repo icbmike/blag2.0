@@ -1,13 +1,14 @@
-//DB SHIT
+//DB Stuff
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/blagDb');
 
 //Define all our models
 require('./models');
 
-//WEB APP SHIT
 var express = require('express');
 var app = express();
+
+app.use(express.static('public'));
 
 require('./routes')(app);
 
