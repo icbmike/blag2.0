@@ -16,9 +16,7 @@
     "express": "^4.10.6",
     "jade": "^1.8.2",
     "lodash": "^2.4.1",
-    "mongoose": "^3.8.21"
-  },
-  "devDependencies": {
+    "mongoose": "^3.8.21",
     "browserify": "^7.0.3",
     "browserify-global-shim": "^1.0.0",
     "gulp": "^3.8.10",
