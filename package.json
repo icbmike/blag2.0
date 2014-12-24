@@ -10,5 +10,8 @@
     "blag"
   ],
   "author": "Mike Little",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^3.8.21"
+  }
 }
