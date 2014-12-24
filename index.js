@@ -1,9 +1,9 @@
 //DB Stuff
-//var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/blagDb');
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/blagDb');
 
 //Define all our models
-//require('./models');
+require('./models');
 
 var express = require('express');
 var app = express();
