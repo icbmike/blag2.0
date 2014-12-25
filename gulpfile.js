@@ -53,14 +53,10 @@ gulp.task('cleancss', ['less'], function() {
 });
 
 gulp.task('browserify', function() {
-	var globalShim = require('browserify-global-shim').configure({
-		'angular': 'angular'
-	});
-
 	return browserify({
 		entries: paths.appEntryPoint,
 		debug: true
-	}).transform(stringify(['.html'])).transform(globalShim).bundle().on('error', errorHandler).pipe(source(paths.appOutputFile)).pipe(buffer()).pipe(sourcemaps.init({
+	}).transform(stringify(['.html'])).bundle().on('error', errorHandler).pipe(source(paths.appOutputFile)).pipe(buffer()).pipe(sourcemaps.init({
 		loadMaps: true
 	})).pipe(sourcemaps.write({
 		sourceRoot: '/'
