@@ -1,5 +1,4 @@
 
-
 var blagApp = require('angular').module('blagApp');
 
 blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {

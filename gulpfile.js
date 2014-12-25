@@ -60,7 +60,7 @@ gulp.task('browserify', function() {
 	return browserify({
 		entries: paths.appEntryPoint,
 		debug: true
-	}).transform(globalShim).transform(stringify(['.html'])).bundle().on('error', errorHandler).pipe(source(paths.appOutputFile)).pipe(buffer()).pipe(sourcemaps.init({
+	}).transform(stringify(['.html'])).transform(globalShim).bundle().on('error', errorHandler).pipe(source(paths.appOutputFile)).pipe(buffer()).pipe(sourcemaps.init({
 		loadMaps: true
 	})).pipe(sourcemaps.write({
 		sourceRoot: '/'
