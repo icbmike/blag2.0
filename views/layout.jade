@@ -1,0 +1,11 @@
+doctype html
+html(ng-app="blagApp")
+	head
+		title Blag
+
+		link(rel="stylesheet", href=isDevelopment ? '/styles/blag.css' : '/styles/blag.min.css')
+		block head
+		
+	body
+		div.content
+			block content

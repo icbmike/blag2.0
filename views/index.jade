@@ -1,8 +1,9 @@
-html(ng-app="blagApp")
-	head
-		title Blag
-		link(rel="stylesheet", href=isDevelopment ? '/styles/blag.css' : '/styles/blag.min.css')
-		script(src=isDevelopment ? '/scripts/app.bundle.js' : '/scripts/app.bundle.min.js')
-	body
-		header(ng-include="'templates/header-template.html'")
-		div.content(ui-view="")
+
+extends ./layout.jade
+
+block head
+	script(src=isDevelopment ? '/scripts/app.bundle.js' : '/scripts/app.bundle.min.js')
+
+block content
+	header(ng-include="'templates/header-template.html'")
+	ui-view

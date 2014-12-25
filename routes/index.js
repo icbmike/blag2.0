@@ -2,6 +2,12 @@
 
 var passport = require('passport');
 
+
+function ensureAuthenticated(req, res, next) {
+	if(!req.user) res.redirect('/login');
+	else next();
+};
+
 module.exports = function(app) {
 
 	//Blog Posts
@@ -9,17 +15,28 @@ module.exports = function(app) {
 	app.get('/blogPosts', blogPostRoutes.get);
 	app.post('/blogPosts', blogPostRoutes.post);
 
-	app.get('/login',function(req, res){
+	app.get('/login', function(req, res) {
 		res.render('login.jade');
-	})
-	app.post('/login', passport.authenticate('local', { successRedirect: '/admin',
-                                                    failureRedirect: '/login' }));
-	app.get('/admin', function(req, res){
+	});
+
+	app.post('/login', passport.authenticate('local', {
+		successRedirect: '/admin',
+		failureRedirect: '/'
+	}));
+
+	app.post('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+	});
+
+	app.get('/admin', ensureAuthenticated, function(req, res) {
 		res.render('admin.jade');
 	});
 
 	//Application page
-	app.get('/*', function(req, res){
-		res.render('index.jade', {isDevelopment: process.env.NODE_ENV !== 'production'});
+	app.get('/*', function(req, res) {
+		res.render('index.jade', {
+			isDevelopment: process.env.NODE_ENV !== 'production'
+		});
 	});
 };

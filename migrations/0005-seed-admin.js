@@ -6,7 +6,7 @@ exports.up = function(db, next){
 
 	var User = mongoose.model('User', require('../models/user'));
 	
-    User.register(new User({ username: 'Mike'}), 'password', function(err){
+    User.register(new User({ username: 'Mike'}), process.env.BLAG_ADMIN_PASSWORD || 'password', function(err){
     	if(err) console.log(err);
 
 		next();

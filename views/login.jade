@@ -1,0 +1,7 @@
+extends ./layout.jade
+
+block content
+	form(id="login-form", method="post", action="/login")
+		input(type="text", placeholder="Username...", name="username")
+		input(type="password", placeholder="Username...", name="password")
+		input(type="submit", placeholder="placeholder" value="Log In")
