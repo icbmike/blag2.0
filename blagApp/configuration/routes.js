@@ -11,7 +11,7 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
         requireBase: false
     });
 
-	$urlRouterProvider.otherwise("/");
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
 	.state('root', {
