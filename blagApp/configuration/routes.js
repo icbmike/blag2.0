@@ -21,5 +21,9 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 	.state('archive', {
 		url: '/archive',
 		templateUrl: 'templates/archive.html'
-	});
+	})
+	.state('tags', {
+		url: '/tags/{tag}',
+		templateUrl: 'templates/tags.html'
+	 });
 });

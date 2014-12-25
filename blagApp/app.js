@@ -10,3 +10,4 @@ angular.module('blagApp', ['ui.router', 'restangular']);
 require('./configuration/routes');
 
 require('./components/BlogPost/');
+require('./components/tags/')
