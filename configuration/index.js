@@ -7,8 +7,8 @@ module.exports = function(app){
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
 
+	require('./passport');
+
 	app.engine('jade', require('jade').__express);
 	app.use(express.static('public'));
-
-	require('./passport');
 };
