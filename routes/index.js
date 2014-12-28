@@ -35,8 +35,6 @@ module.exports = function(app) {
 
 	//Application page
 	app.get('/*', function(req, res) {
-		res.render('index.jade', {
-			isDevelopment: process.env.NODE_ENV !== 'production'
-		});
+		res.render('index.jade');
 	});
 };

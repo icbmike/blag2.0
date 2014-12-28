@@ -1,6 +1,11 @@
 extends ./layout.jade
 
 block content
-	h1 Heyo
-	form(id="logout-form", method="post", action="/logout")
-		input(type="submit", placeholder="placeholder" value="Log Out")
+	header
+		nav.admin-navigation
+			form(id="logout-form", method="post", action="/logout")
+				a.admin-navigation-home(href="/") Blag Admin
+				
+				input.admin-navigation-logout.button(type="submit", placeholder="placeholder" value="Log Out")
+	.content
+		button.button New Post

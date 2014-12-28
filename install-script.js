@@ -9,5 +9,5 @@ User.register(new User({ username: 'Mike'}), process.env.BLAG_ADMIN_PASSWORD || 
 	if(err) console.log(err);
 	else console.log('Succesfully create admin user');
 
-	process.exit(0);
+	process.exit(0); //Without this line, the script hangs :/
 });    

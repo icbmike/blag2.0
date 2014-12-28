@@ -24,4 +24,9 @@ module.exports = function(app) {
 
 	app.engine('jade', require('jade').__express);
 	app.use(express.static('public'));
+
+	app.use(function(req, res, next){
+		res.locals.isDevelopment = process.env.NODE_ENV !== 'production'
+		next();
+	});
 };
