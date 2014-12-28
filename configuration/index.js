@@ -4,10 +4,12 @@ var cookieParser = require('cookie-parser'),
 	session = require('express-session'),
 	passport = require('passport'),
 	bodyParser = require('body-parser'),
+	checkSSL = require('./ssl'),
 	express = require('express');
 
-module.exports = function(app) {
 
+module.exports = function(app) {
+	checkSSL(app);
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(cookieParser());
