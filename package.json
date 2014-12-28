@@ -4,7 +4,7 @@
   "description": "My blag",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node ./node_modules/gulp/bin/gulp.js build"
+    "postinstall": "node ./node_modules/gulp/bin/gulp.js build ; node ./node_modules/mongo-migrate/index.js -runmm -cfg migration-config.json -dbn appDb up"
   },
   "keywords": [
     "blag"
