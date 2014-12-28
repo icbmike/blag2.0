@@ -1,6 +1,0 @@
-{
-	"appDb" : {
-		"host" : "localhost",
-		"db"   : "blagDb"
-	}
-}

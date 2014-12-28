@@ -4,7 +4,7 @@
   "description": "My blag",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node ./node_modules/gulp/bin/gulp.js build ; node ./node_modules/mongo-migrate/index.js -runmm -cfg migration-config.json -dbn appDb up"
+    "postinstall": "node ./node_modules/gulp/bin/gulp.js build ; node install-script.js"
   },
   "keywords": [
     "blag"
@@ -32,7 +32,6 @@
     "gulp-uglify": "^1.0.2",
     "jade": "^1.8.2",
     "lodash": "^2.4.1",
-    "mongo-migrate": "^0.1.0",
     "mongodb": "^1.4.26",
     "mongoose": "^3.8.21",
     "passport": "^0.2.1",
