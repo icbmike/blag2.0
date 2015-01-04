@@ -14,9 +14,14 @@ var gulp = require('gulp'),
     cleancss = require('gulp-minify-css');
 
 var paths = {
-	appEntryPoint: './blagApp/app.js',
+	appEntryPoint: './blagApp/app.js',	
 	appOutputFile: 'app.bundle.js',
 	appOutputFileMin: 'app.bundle.min.js',
+	
+	adminAppEntryPoint: './blagApp/adminApp.js',	
+	adminAppOutputFile: 'adminApp.bundle.js',
+	adminAppOutputFileMin: 'adminApp.bundle.min.js',
+
 	appOutputDir: './public/scripts/',
 	appFiles: ['./blagApp/**/*.js', './blagApp/**/*.html'],
 	
@@ -77,6 +82,8 @@ function browserifyTask(appEntryPoint, appOutputFile) {
 
 gulp.task('browserify', browserifyTask(paths.appEntryPoint, paths.appOutputFile));
 
+gulp.task('browserifyAdmin', browserifyTask(paths.adminAppEntryPoint, paths.adminAppOutputFile));
+
 //-------------------------
 // UGLIFY
 //-------------------------
@@ -93,11 +100,13 @@ function uglifyTask(appOutputFile, appOutputFileMin){
 
 gulp.task('uglify', ['browserify'], uglifyTask(paths.appOutputFile, paths.appOutputFileMin));
 
+gulp.task('uglifyAdmin', ['browserifyAdmin'], uglifyTask(paths.adminAppOutputFile, paths.adminAppOutputFileMin));
+
 //-------------------------
 // TASK STUFF
 //-------------------------
 
-gulp.task('build', ['less', 'cleancss', 'browserify', 'uglify']);
+gulp.task('build', ['less', 'cleancss', 'browserify', 'browserifyAdmin','uglify', 'uglifyAdmin']);
 
 gulp.task('watch', ['build'], function() {
 	gulp.watch(paths.appFiles, ['build']);

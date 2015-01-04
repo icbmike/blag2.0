@@ -1,11 +1,12 @@
 extends ./layout.jade
 
 block content
-	header
-		nav.admin-navigation
-			form(id="logout-form", method="post", action="/logout")
-				a.admin-navigation-home(href="/") Blag Admin
-				
-				input.admin-navigation-logout.button(type="submit", placeholder="placeholder" value="Log Out")
-	.content
-		button.button New Post
+	div(ng-app="blagAdminApp")
+		header
+			nav.admin-navigation
+				form(id="logout-form", method="post", action="/logout")
+					a.admin-navigation-home(href="/") Blag Admin
+					
+					input.admin-navigation-logout.button(type="submit", placeholder="placeholder" value="Log Out")
+		.content
+			button.button New Post

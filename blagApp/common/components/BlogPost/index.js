@@ -1,6 +1,6 @@
 'use strict';
 
-var blagApp = require('angular').module('blagApp');
+var blagApp = require('angular').module('blagApp.common');
 
 blagApp.service('BlogPostService', ['Restangular', require('./blog-post-service')]);
 
