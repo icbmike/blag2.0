@@ -31,6 +31,10 @@ function errorHandler(error) {
 	this.emit('end');
 };
 
+//-------------------------
+// LESS STuff
+//-------------------------
+
 gulp.task('less', function() {
     return gulp.src(paths.styleEntryFile)
     	.pipe(sourcemaps.init())
@@ -52,22 +56,46 @@ gulp.task('cleancss', ['less'], function() {
         .pipe(gulp.dest(paths.styleOutputDir));
 });
 
-gulp.task('browserify', function() {
-	return browserify({
-		entries: paths.appEntryPoint,
-		debug: true
-	}).transform(stringify(['.html'])).bundle().on('error', errorHandler).pipe(source(paths.appOutputFile)).pipe(buffer()).pipe(sourcemaps.init({
-		loadMaps: true
-	})).pipe(sourcemaps.write({
-		sourceRoot: '/'
-	})).pipe(gulp.dest(paths.appOutputDir));
-});
+//-------------------------
+// BROWSERIFY
+//-------------------------
 
-gulp.task('uglify', ['browserify'], function() {
-	return gulp.src(path.join(paths.appOutputDir, paths.appOutputFile)).pipe(uglify({
-		mangle: false
-	})).pipe(rename(paths.appOutputFileMin)).pipe(gulp.dest(paths.appOutputDir));
-});
+function browserifyTask(appEntryPoint, appOutputFile) {
+	return function() {
+		return 
+		browserify({ entries: appEntryPoint, debug: true })
+		.transform(stringify(['.html']))
+		.bundle()
+		.on('error', errorHandler)
+		.pipe(source(appOutputFile))
+		.pipe(buffer())
+		.pipe(sourcemaps.init({ loadMaps: true}))
+		.pipe(sourcemaps.write({sourceRoot: '/'}))
+		.pipe(gulp.dest(paths.appOutputDir));
+	};
+}
+
+gulp.task('browserify', browserifyTask(paths.appEntryPoint, paths.appOutputFile));
+
+//-------------------------
+// UGLIFY
+//-------------------------
+
+function uglifyTask(appOutputFile, appOutputFileMin){
+	return function() {
+		return 
+		gulp.src(path.join(paths.appOutputDir, appOutputFile))
+		.pipe(uglify({mangle: false}))
+		.pipe(rename(appOutputFileMin))
+		.pipe(gulp.dest(paths.appOutputDir));
+	};
+}
+
+gulp.task('uglify', ['browserify'], uglifyTask(paths.appOutputFile, paths.appOutputFileMin));
+
+//-------------------------
+// TASK STUFF
+//-------------------------
 
 gulp.task('build', ['less', 'cleancss', 'browserify', 'uglify']);
 
