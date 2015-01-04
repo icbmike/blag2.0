@@ -2,6 +2,6 @@
 
 module.exports = function(blogPostService){
 	this.submitPost = function(){
-		console.log(this.postContent);
+		blogPostService.createPost(this.title, this.content, []);
 	}.bind(this);
 }

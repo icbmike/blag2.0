@@ -1,8 +1,7 @@
 <div class="blogPost">
 	<h2 class="blogPost-title">{{post.title}}</h2>
 	<span class="blogPost-date">{{post.date | date:'medium'}}</span>
-	<div class="blogPost-content">
-		{{post.content}}
+	<div class="blogPost-content" ng-bind-html="::renderedContent">
 	</div>
 	
 	<a class="blogPost-tag" ng-repeat="tag in post.tags" ui-sref="tags({tag: tag})">{{tag}}</a>
