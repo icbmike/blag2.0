@@ -16,7 +16,7 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 	$stateProvider
 	.state('root', {
 		url: '/admin',
-		template: 'templates/admin.html'
+		templateUrl: 'templates/admin.html'
 	})
 	.state('newPost', {
 		url: '/newPost',
