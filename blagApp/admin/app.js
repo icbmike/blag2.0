@@ -6,7 +6,7 @@ var angular = require('angular');
 
 require('../common');
 
-angular.module('blagAdminApp', ['ui.router', 'restangular', 'blagApp.common']);
+angular.module('blagAdminApp', ['ui.router', 'restangular', 'ngSanitize', 'blagApp.common']);
 
 require('./configuration/routes');
 

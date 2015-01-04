@@ -18,4 +18,8 @@ BlogPostService.prototype.listBlogPosts = function() {
 	}.bind(this));
 };
 
+BlogPostService.prototype.createPost = function(title, content, tags) {
+	return this.api.post({title:title, content:content, tags:tags});
+};
+
 module.exports = BlogPostService;
