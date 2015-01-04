@@ -14,11 +14,11 @@ var gulp = require('gulp'),
     cleancss = require('gulp-minify-css');
 
 var paths = {
-	appEntryPoint: './blagApp/app.js',	
+	appEntryPoint: './blagApp/blog/app.js',	
 	appOutputFile: 'app.bundle.js',
 	appOutputFileMin: 'app.bundle.min.js',
 	
-	adminAppEntryPoint: './blagApp/adminApp.js',	
+	adminAppEntryPoint: './blagApp/admin/app.js',	
 	adminAppOutputFile: 'adminApp.bundle.js',
 	adminAppOutputFileMin: 'adminApp.bundle.min.js',
 
@@ -67,6 +67,7 @@ gulp.task('cleancss', ['less'], function() {
 
 function browserifyTask(appEntryPoint, appOutputFile) {
 	return function() {
+		console.log('wtf');
 		return 
 		browserify({ entries: appEntryPoint, debug: true })
 		.transform(stringify(['.html']))

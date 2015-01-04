@@ -1,5 +1,8 @@
 extends ./layout.jade
 
+block head
+	script(src=isDevelopment ? '/scripts/adminApp.bundle.js' : '/scripts/adminApp.bundle.min.js')
+
 block content
 	div(ng-app="blagAdminApp")
 		header
@@ -8,5 +11,4 @@ block content
 					a.admin-navigation-home(href="/") Blag Admin
 					
 					input.admin-navigation-logout.button(type="submit", placeholder="placeholder" value="Log Out")
-		.content
-			button.button New Post
+		ui-view.content
