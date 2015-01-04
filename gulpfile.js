@@ -67,16 +67,14 @@ gulp.task('cleancss', ['less'], function() {
 
 function browserifyTask(appEntryPoint, appOutputFile) {
 	return function() {
-		console.log('wtf');
-		return 
-		browserify({ entries: appEntryPoint, debug: true })
+		return browserify({ entries: appEntryPoint, debug: true })
 		.transform(stringify(['.html']))
 		.bundle()
 		.on('error', errorHandler)
 		.pipe(source(appOutputFile))
 		.pipe(buffer())
-		.pipe(sourcemaps.init({ loadMaps: true}))
-		.pipe(sourcemaps.write({sourceRoot: '/'}))
+		.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(sourcemaps.write({	sourceRoot: '/'}))
 		.pipe(gulp.dest(paths.appOutputDir));
 	};
 }
