@@ -88,9 +88,8 @@ gulp.task('browserifyAdmin', browserifyTask(paths.adminAppEntryPoint, paths.admi
 //-------------------------
 
 function uglifyTask(appOutputFile, appOutputFileMin){
-	return function() {
-		return 
-		gulp.src(path.join(paths.appOutputDir, appOutputFile))
+	return  function() {
+		return gulp.src(path.join(paths.appOutputDir, appOutputFile))
 		.pipe(uglify({mangle: false}))
 		.pipe(rename(appOutputFileMin))
 		.pipe(gulp.dest(paths.appOutputDir));
