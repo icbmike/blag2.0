@@ -20,6 +20,10 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 	})
 	.state('newPost', {
 		url: '/newPost',
-		templateUrl: '/templates/newPost.html'
+		templateUrl: '/templates/editPost.html'
+	})
+	.state('editPost', {
+		url: '/editPost/:id',
+		templateUrl: '/templates/editPost.html'
 	});
 });

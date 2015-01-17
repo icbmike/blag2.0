@@ -1,0 +1,11 @@
+<h2>New Post</h2>
+
+<div ng-controller="EditPostController as ctrl" class="editPost">
+	<input type="text" ng-model="ctrl.title" class="editPost-title" placeholder="Title" />
+	<textarea type="text" ng-model="ctrl.content" class="editPost-content" placeholder="Content..." />
+	<input type="text" ng-model="ctrl.tags" class="editPost-tags" />
+	<button ng-click="ctrl.submitPost()" class="editPost-submitButton button">Post</button>
+
+	<h3>Preview</h3>
+	<markdown-preview input="ctrl.content" class="editPost-markdownPreview"></markdown-preview>
+</div>

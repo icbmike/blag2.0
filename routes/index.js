@@ -14,6 +14,9 @@ module.exports = function(app) {
 	var blogPostRoutes = require('./blog-post');
 	app.get('/blogPosts', blogPostRoutes.get);
 	app.post('/blogPosts', blogPostRoutes.post);
+	app.delete('/blogPosts/:id', blogPostRoutes.delete);
+	app.put('/blogPosts/:id', blogPostRoutes.put);
+
 
 	app.get('/login', function(req, res) {
 		res.render('login.jade');

@@ -2,4 +2,6 @@
 
 var blagApp = require('angular').module('blagAdminApp');
 
-blagApp.controller('NewPostController', ['BlogPostService', require('./new-post-controller')]);
+blagApp.controller('EditPostController', ['BlogPostService', '$stateParams', require('./edit-post-controller')]);
+
+blagApp.controller('BlogAdminController', ['BlogPostService', require('./blog-admin-controller')]);
