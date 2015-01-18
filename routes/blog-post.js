@@ -21,18 +21,24 @@ module.exports = {
 		});
 	},
 	put: function(req, res) {
-		BlogPost.update({_id: req.params.id}, 
+		BlogPost.findByIdAndUpdate(req.params.id, 
 			{title: req.body.title, content: req.body.content}, 
-			function(err){
+			function(err, updatedThing){
 				if(err)
 					console.log(err);
+
+				res.send(updatedThing);
 			});
 	},
 	delete: function(req, res) {
 		var id  = req.params.id;
 		BlogPost.findByIdAndRemove(id, function(err){
-			if(err)
+			if(err){
 				console.log(err);
+				res.end();
+			}else{
+				res.status(204).end();
+			}
 		});
 	}
 };

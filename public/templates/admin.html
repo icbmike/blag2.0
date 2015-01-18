@@ -3,7 +3,7 @@
 	<div class="blogPostEditHeader" ng-repeat="blogPost in ctrl.blogPosts">
 		<h2>{{blogPost.title}}</h2> 
 		<span>{{blogPost.date}}</span>
-		<button class="button" ui-sref="ctrl.editPost({id: blogPost.id})">Edit</button>
+		<button class="button" ui-sref="editPost({id: blogPost.id})">Edit</button>
 		<button class="button" ng-click="ctrl.deletePost(blogPost)">Delete</button>
 	</div>
 

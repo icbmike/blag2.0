@@ -1,9 +1,17 @@
 'use strict';
 
 module.exports = function(blogPostService){
-	blogPostService.listBlogPosts().then(function(){
-		this.blogPosts = blogPostService.posts;
-	}.bind(this));
+	function init(){
+		blogPostService.listBlogPosts().then(function(){
+			this.blogPosts = blogPostService.posts;
+		}.bind(this));
+	}
 
-	this.deletePost = blogPostService.deletePost.bind(blogPostService);
+	init.call(this);
+
+	this.deletePost = function(postToDelete){
+		blogPostService.deletePost(postToDelete).then(function(){
+			init.call(this);
+		}.bind(this));
+	};
 };

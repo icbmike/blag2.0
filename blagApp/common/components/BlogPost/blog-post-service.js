@@ -34,13 +34,13 @@ BlogPostService.prototype.editPost = function(id, title, content, tags) {
 
 BlogPostService.prototype.deletePost = function(blogPost) {
 	return blogPost.remove().then(function(){
-		return this.listBlogPosts();
-	}.bind(this));
+		console.log("promise");
+	});
 };
 
 BlogPostService.prototype.getPost = function(id) {
 	return _.find(this.posts, function(post){
-		return post.id === id
+		return post.id === id;
 	});
 };
 

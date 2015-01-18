@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(blogPostService, $stateParams){
+module.exports = function(blogPostService, $state, $stateParams){
 
 	this.isEditing = !!$stateParams.id;
 
@@ -13,10 +13,12 @@ module.exports = function(blogPostService, $stateParams){
 	}
 
 	this.submitPost = function(){
-		if(this.isEditing){
-			blogPostService.editPost($stateParams.id, this.title, this.content, []);
-		}else {
-			blogPostService.createPost(this.title, this.content, []);
-		}
+		var promise = this.isEditing 
+			? blogPostService.editPost($stateParams.id, this.title, this.content, [])
+			: blogPostService.createPost(this.title, this.content, []);
+
+		promise.then(function(){
+			$state.go('adminRoot');
+		});
 	};
 };

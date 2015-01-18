@@ -14,7 +14,7 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
-	.state('root', {
+	.state('adminRoot', {
 		url: '/admin',
 		templateUrl: 'templates/admin.html'
 	})
@@ -27,3 +27,4 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 		templateUrl: '/templates/editPost.html'
 	});
 });
+
