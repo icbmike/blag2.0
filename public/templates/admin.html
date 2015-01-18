@@ -1,11 +1,11 @@
-<div ng-controller="BlogAdminController as ctrl">
+<div ng-controller="BlogAdminController as ctrl" class="blogPostEditHeader">
 
-	<div class="blogPostEditHeader" ng-repeat="blogPost in ctrl.blogPosts">
-		<h2>{{blogPost.title}}</h2> 
-		<span>{{blogPost.date}}</span>
+	<div ng-repeat="blogPost in ctrl.blogPosts">
+		<h2 class="blogPostEditHeader-title">{{blogPost.title}}</h2> 
+		<span class="blogPostEditHeader-date">{{blogPost.date | date:'short'}}</span>
 		<button class="button" ui-sref="editPost({id: blogPost.id})">Edit</button>
 		<button class="button" ng-click="ctrl.deletePost(blogPost)">Delete</button>
 	</div>
 
-	<button class="button" ui-sref="newPost">New Post</button>
+	<button class="button blogPostEditHeader-newPostButton" ui-sref="newPost">New Post</button>
 </div>
