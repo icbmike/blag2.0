@@ -431,3 +431,7 @@ th {
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;
 }
+
+p {
+  line-height: 1.8em;
+}
