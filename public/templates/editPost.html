@@ -1,6 +1,5 @@
-<h2>New Post</h2>
-
 <div ng-controller="EditPostController as ctrl" class="editPost">
+<h2>{{ctrl.isEditing ? 'Edit Post' : 'New Post'}}</h2>
 	<input type="text" ng-model="ctrl.title" class="editPost-title" placeholder="Title" />
 	<textarea type="text" ng-model="ctrl.content" class="editPost-content" placeholder="Content..." />
 	<input type="text" ng-model="ctrl.tags" class="editPost-tags" />

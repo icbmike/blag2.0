@@ -5,11 +5,11 @@ module.exports = function(blogPostService, $state, $stateParams){
 	this.isEditing = !!$stateParams.id;
 
 	if(this.isEditing){
-		var postToEdit = blogPostService.getPost($stateParams.id);
-
-		this.title = postToEdit.title;
-		this.content = postToEdit.content;
-		this.tags = postToEdit.tags;
+		blogPostService.getPost($stateParams.id).then(function(postToEdit){
+			this.title = postToEdit.title;
+			this.content = postToEdit.content;
+			this.tags = postToEdit.tags;
+		}.bind(this));
 	}
 
 	this.submitPost = function(){

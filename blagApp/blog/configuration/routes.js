@@ -16,18 +16,18 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 	$stateProvider
 	.state('root', {
 		url: '/',
-		templateUrl: 'templates/root.html'
+		templateUrl: '/templates/root.html'
 	})
 	.state('archive', {
 		url: '/archive',
-		templateUrl: 'templates/archive.html'
+		templateUrl: '/templates/archive.html'
 	})
 	.state('blogPost', {
 		url: '/blogPost/{id}',
-		templateUrl: 'templates/blogPost.html'
+		templateUrl: '/templates/blogPost.html'
 	})
 	.state('tags', {
 		url: '/tags/{tag}',
-		templateUrl: 'templates/tags.html'
+		templateUrl: '/templates/tags.html'
 	 });
 });

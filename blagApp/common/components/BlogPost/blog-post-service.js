@@ -23,25 +23,22 @@ BlogPostService.prototype.createPost = function(title, content, tags) {
 };
 
 BlogPostService.prototype.editPost = function(id, title, content, tags) {
-	var post = this.getPost(id);
+	return this.getPost(id).then(function(post){
 
-	post.title = title;
-	post.content = content;
-	post.tags = tags;
+		post.title = title;
+		post.content = content;
+		post.tags = tags;
 
-	return post.save();
+		return post.save();
+	});
 };
 
 BlogPostService.prototype.deletePost = function(blogPost) {
-	return blogPost.remove().then(function(){
-		console.log("promise");
-	});
+	return blogPost.remove();
 };
 
 BlogPostService.prototype.getPost = function(id) {
-	return _.find(this.posts, function(post){
-		return post.id === id;
-	});
+	return this.api.get(id);
 };
 
 module.exports = BlogPostService;

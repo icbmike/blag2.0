@@ -5,9 +5,14 @@ var mongoose = require('mongoose'),
 var BlogPost = mongoose.model('BlogPost');
 
 module.exports = {
-	get: function(req, res) {
+	getList: function(req, res) {
 		BlogPost.find({},  null, {sort: {date: -1}}, function(err, posts) {
 			res.send(posts);
+		});
+	},
+	getById: function(req, res){
+		BlogPost.findById(req.params.id, function(err, post){
+			res.send(post);
 		});
 	},
 	post: function(req, res) {

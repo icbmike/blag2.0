@@ -12,7 +12,8 @@ module.exports = function(app) {
 
 	//Blog Posts
 	var blogPostRoutes = require('./blog-post');
-	app.get('/blogPosts', blogPostRoutes.get);
+	app.get('/blogPosts', blogPostRoutes.getList);
+	app.get('/blogPosts/:id', blogPostRoutes.getById);
 	app.post('/blogPosts', blogPostRoutes.post);
 	app.delete('/blogPosts/:id', blogPostRoutes.delete);
 	app.put('/blogPosts/:id', blogPostRoutes.put);
