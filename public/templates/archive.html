@@ -1,1 +1,14 @@
 <h1>Archive</h1>
+
+<div ng-controller="ArchiveController as ctrl">
+	<ul>
+		<li ng-repeat="month in ctrl.months">
+			{{month.text}}
+			<ul>
+				<li ng-repeat="post in month.posts">
+					<a ui-sref="blogPost({id:post.id})">{{post.title}}</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

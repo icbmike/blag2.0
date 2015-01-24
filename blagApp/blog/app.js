@@ -10,4 +10,5 @@ angular.module('blagApp', ['ui.router', 'restangular', 'ngSanitize', 'blagApp.co
 
 require('./configuration/routes');
 
-require('./components/tags/')
+require('./components/BlogPost/');
+require('./components/tags/');
