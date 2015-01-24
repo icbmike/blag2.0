@@ -1,0 +1,4 @@
+<div ng-controller="BlogPostController as ctrl">
+	<img src="/images/loading.gif" ng-if="ctrl.isLoading" />
+	<blog-post post="ctrl.post" ng-if="!ctrl.isLoading" ></blog-post>
+</div>

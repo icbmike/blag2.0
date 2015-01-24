@@ -1,7 +1,5 @@
 'use strict';
 
-module.exports = function(blogPostService){
-	blogPostService.listBlogPosts().then(function(){
-		this.blogPosts = blogPostService.posts;
-	}.bind(this));
-}
+module.exports = function(blogPostService, $stateParams) {
+	this.post = blogPostService.getPost($stateParams.id);
+};

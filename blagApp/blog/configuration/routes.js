@@ -22,6 +22,10 @@ blagApp.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryPr
 		url: '/archive',
 		templateUrl: 'templates/archive.html'
 	})
+	.state('blogPost', {
+		url: '/blogPost/{id}',
+		templateUrl: 'templates/blogPost.html'
+	})
 	.state('tags', {
 		url: '/tags/{tag}',
 		templateUrl: 'templates/tags.html'
