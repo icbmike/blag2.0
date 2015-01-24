@@ -432,6 +432,6 @@ th {
   box-sizing: border-box;
 }
 
-p {
-  line-height: 1.8em;
+p, li {
+  line-height: 1.7em;
 }
