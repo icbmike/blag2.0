@@ -1,10 +1,13 @@
 <h1>Archive</h1>
 
 <div ng-controller="ArchiveController as ctrl">
-	<ul>
-		<li ng-repeat="month in ctrl.months">
+	<ul class="archive-months">
+		<li ng-repeat="month in ctrl.months" class="archive-month">
 			{{month.text}}
-			<ul>
+			<i class="fa archive-monthToggle"
+				ng-click="month.collapsed = !month.collapsed" 
+				ng-class="{'fa-chevron-down': month.collapsed, 'fa-chevron-up': !month.collapsed}"></i>
+			<ul ng-show="month.collapsed">
 				<li ng-repeat="post in month.posts">
 					<a ui-sref="blogPost({id:post.id})">{{post.title}}</a>
 				</li>
