@@ -8,7 +8,7 @@
 				ng-class="{'fa-chevron-down': month.collapsed, 'fa-chevron-up': !month.collapsed}"></i>
 			{{month.text}}
 			<ul ng-show="month.collapsed">
-				<li ng-repeat="post in month.posts">
+				<li ng-repeat="post in month.posts" class="archive-post">
 					<a ui-sref="blogPost({id:post.id})">{{post.title}}</a>
 				</li>
 			</ul>
